@@ -1,11 +1,11 @@
 import { gql, GraphQLClient } from 'graphql-request';
+import { comment } from 'postcss';
 import React, { useEffect, useState } from 'react'
 const CommentsForm = ({ slug }) => {
   const [error, setError] = useState(false);
   const [localStorage, setLocalStorage] = useState('');
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', comment: '', storeData: false });
-
+  const [formData, setFormData] = useState({ name: undefined, email: undefined, comment: undefined, storeData: false });
   useEffect(() => {
     setLocalStorage(window.localStorage);
     const initalFormData = {
@@ -13,6 +13,12 @@ const CommentsForm = ({ slug }) => {
       email: window.localStorage.getItem('email'),
       storeData: window.localStorage.getItem('name') || window.localStorage.getItem('email'),
     };
+    if (initalFormData.name === null || initalFormData.email === null || initalFormData.comment === null) {
+      initalFormData.name === window.localStorage.setItem("name", '')
+      initalFormData.email === window.localStorage.setItem("email", '')
+      initalFormData.comment === window.localStorage.setItem("comment", '')
+    }
+
     setFormData(initalFormData);
   }, []);
 
@@ -99,13 +105,11 @@ const CommentsForm = ({ slug }) => {
       });
   };
 
-
-
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
       <h3 className="text-xl mb-8 font-semibold border-b pb-4">Leave a Reply</h3>
       <div className="grid grid-cols-1 gap-4 mb-4">
-        <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
+        <textarea value={formData.comment} onChange={onInputChange} className="p-4 outline-none w-full rounded-lg max-h-42  focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
         <input type="text" value={formData.name} onChange={onInputChange} className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Name" name="name" />
@@ -113,7 +117,7 @@ const CommentsForm = ({ slug }) => {
       </div>
       <div className="grid grid-cols-1 gap-4 mb-4">
         <div>
-          <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" value="true" />
+          <input checked={formData.storeData} onChange={onInputChange} type="checkbox" id="storeData" name="storeData" />
           <label className="text-gray-500 cursor-pointer" htmlFor="storeData"> Save my name, email in this browser for the next time I comment.</label>
         </div>
       </div>
