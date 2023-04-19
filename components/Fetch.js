@@ -36,6 +36,39 @@ export async function fetch() {
   const result = await request(endpoint, query);
   return result.postsConnection.edges;
 }
+export const getPostDetails = async (slug) => {
+  const query = gql`
+    query GetPostDetails($slug : String!) {
+      post(where: {slug: $slug}) {
+        title
+        excerpt
+        featuredImage {
+          url
+        }
+        author{
+          name
+          bio
+          photo {
+            url
+          }
+        }
+        createdAt
+        slug
+        content {
+          raw
+        }
+        categories {
+          name
+          slug
+        }
+      }
+    }
+  `;
+
+  const result = await request(endpoint, query, { slug });
+
+  return result.post;
+};
 
 export const getRecentPosts = async () => {
   const query = gql`
@@ -77,4 +110,30 @@ export const getSimilarPosts = async (categories, slug) => {
   const result = await request(endpoint, query, { slug, categories });
 
   return result.posts;
+};
+
+
+export async function getCategories() {
+  const query = gql`
+    query GetCategories {
+      categories{
+        name
+        slug
+      }
+    }
+`
+  const result = await request(endpoint, query)
+  return result.categories
+}
+
+export const submitComment = async (obj) => {
+  const result = await fetch('/api/comments', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
 };
