@@ -14,15 +14,13 @@ const index = ({ posts }) => {
           <Link rel='icon' href={'../public/favicon.ico'} />
         </Head>
         <FeaturedPosts />
-        <div className='grid grid-cols-2 lg:grid-cols-12 gap-12'>
-          <div className='lg:col-span-8 col-span-1'>
-            {posts.map((post,index) => <PostCard key={index} post={post} />)}
+        <div className=''>
+          <div className='row-span-10'>
+            {posts.map((post, index) => <PostCard key={index} post={post} />)}
           </div>
-          <div className='lg:col-span-4 col-span-1'>
-            <div className='lg:sticky relative top-8'>
-              <PostWidget />
-              <Categories />
-            </div>
+          <div className='lg:col-span-4 col-span-12 '>
+            <PostWidget />
+            <Categories />
           </div>
         </div>
       </div>
