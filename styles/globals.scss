@@ -19,9 +19,9 @@ body {
     // background-image: url("https://raw.githubusercontent.com/adrianhajdin/project_graphql_blog/main/public/bg.jpg");
     position: fixed;
     z-index: -1;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
   }
 }
 

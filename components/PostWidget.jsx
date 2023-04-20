@@ -1,3 +1,5 @@
+import { fadeRight } from '@/animations/animation'
+import { motion } from 'framer-motion'
 import moment from 'moment/moment'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -19,7 +21,8 @@ const PostWidget = ({ category, slug }) => {
   }, [slug,category])
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8 PostWidget dark:bg-gray-800 dark:bg-opacity-40">
+    
+    <motion.div variants={fadeRight} initial={fadeRight.initial} animate={fadeRight.animate} className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8 PostWidget dark:bg-gray-800 dark:bg-opacity-40">
       <h3 className='text-xl mb-8 font-semibold border-b pb-4'>
         {slug ? "Related Posts" : "Recent Posts"}
       </h3>
@@ -42,7 +45,7 @@ const PostWidget = ({ category, slug }) => {
           </div>
         ))
       }
-    </div>
+    </motion.div>
   )
 }
 

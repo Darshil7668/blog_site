@@ -1,9 +1,12 @@
+import { fadeScale } from '@/animations/animation'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
 
 const Author = ({ author }) => {
   return (
-    <div className="text-center  mb-8 p-12 relative rounded-lg bg-black bg-opacity-40">
+    
+    <motion.div variants={fadeScale} initial={fadeScale.initial} animate={fadeScale.animate} className="text-center  mb-8 p-12 relative rounded-lg bg-black bg-opacity-40">
       <div className=" absolute left-44 right-0 ">
         <Image
           unoptimized
@@ -16,7 +19,7 @@ const Author = ({ author }) => {
       </div>
       <h3 className="text-white mt-4 mb-4 text-xl font-bold">{author.name}</h3>
       <p className="text-white text-ls">{author.bio}</p>
-    </div>
+    </motion.div>
   )
 }
 

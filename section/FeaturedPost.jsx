@@ -3,6 +3,8 @@ import NewComp from '@/components/FeatureCardComp';
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { stagger } from '@/animations/animation';
+import { motion } from 'framer-motion';
 
 
 const responsive = {
@@ -51,13 +53,14 @@ const FeaturedPosts = () => {
     );
 
     return (
-        <div className="mb-8">
+        <motion.div className="mb-8" variants={stagger.variants} animate={stagger.animate} initial="initial">
             <Carousel infinite customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} responsive={responsive} itemClass="px-4">
                 {dataLoaded && featuredPosts.map((post, index) => (
+
                     <NewComp key={index} post={post} />
                 ))}
             </Carousel>
-        </div>
+        </motion.div>
     )
 };
 

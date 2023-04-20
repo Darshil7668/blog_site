@@ -1,3 +1,5 @@
+import { fadeLeft } from '@/animations/animation';
+import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react'
 import { postData } from './Fetch';
 
@@ -80,7 +82,7 @@ const CommentsForm = ({ slug }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8 dark:bg-black dark:bg-opacity-60">
+    <motion.div variants={fadeLeft} initial={fadeLeft.initial} animate={fadeLeft.animate} className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8 dark:bg-black dark:bg-opacity-60">
       <h3 className="text-xl mb-8 font-semibold border-b pb-4">Leave a Reply</h3>
       <div className="grid grid-cols-1 gap-4 mb-4 ">
         <textarea value={formData.comment} onChange={onInputChange} className="dark:bg-slate-900 dark:text-white p-4 outline-none w-full rounded-lg max-h-42  focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
@@ -100,7 +102,7 @@ const CommentsForm = ({ slug }) => {
         <button type="button" onClick={handlePostSubmission} className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer dark:bg-slate-600">Post Comment</button>
         {showSuccessMessage && <span className="text-xl float-right font-semibold mt-3 text-green-500">Comment submitted for review</span>}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

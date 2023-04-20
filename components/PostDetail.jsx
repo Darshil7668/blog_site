@@ -1,3 +1,5 @@
+import { fadeLeft } from '@/animations/animation'
+import { motion } from 'framer-motion'
 import moment from 'moment/moment'
 import Image from 'next/image'
 import React from 'react'
@@ -42,7 +44,8 @@ const PostDetail = ({ post }) => {
   };
 
   return (
-    <div   className={`bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 h-96 overflow-y-auto dark:text-black dark:bg-slate-800 ${styles.scroll} `}>
+    
+    <motion.div variants={fadeLeft} initial={fadeLeft.initial} animate={fadeLeft.animate}  className={`bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8 h-96 overflow-y-auto dark:text-black dark:bg-slate-800 ${styles.scroll} `}>
       <div className='relative overflow-hidden shadow-md mb-6'>
         <Image
           src={post.featuredImage.url}
@@ -70,7 +73,7 @@ const PostDetail = ({ post }) => {
             <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
           </div>
         </div>
-        <div >
+        <div>
           <h1 className='mb-8 text-3xl font-semibold '>{post.title}</h1>
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
@@ -78,7 +81,7 @@ const PostDetail = ({ post }) => {
           })}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

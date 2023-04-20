@@ -1,3 +1,5 @@
+import { fadeLeft } from '@/animations/animation';
+import { motion } from 'framer-motion';
 import moment from 'moment/moment';
 import Image from 'next/image';
 import Link from 'next/link'
@@ -5,7 +7,7 @@ import React from 'react'
 
 const PostCard = ({ post }) => {
   return (
-    <div className='bg-white  shadow-lg rounded-lg  p-0 lg:p-8 pb-12 mb-8 dark:bg-gray-800 dark:bg-opacity-40  '>
+    <motion.div variants={fadeLeft} initial={fadeLeft.initial} animate={fadeLeft.animate} className='bg-white  shadow-lg rounded-lg  p-0 lg:p-8 pb-12 mb-8 dark:bg-gray-800 dark:bg-opacity-40  '>
       <div className='relative overflow-hidden shadow-md pb-80 mb-6 '>
         <div className='dark:bg-black absolute h-80 w-full  z-10 opacity-40'>
         </div>
@@ -46,7 +48,7 @@ const PostCard = ({ post }) => {
           <span className=" transition duration-500 ease transform hover:-translate-y-1 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer dark:bg-slate-600 ">Continue Reading</span>
         </Link>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
