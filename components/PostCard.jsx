@@ -5,7 +5,7 @@ import React from 'react'
 
 const PostCard = ({ post }) => {
   return (
-    <div className='bg-white  shadow-lg rounded-lg  p-0 lg:p-8 pb-12 mb-8 dark:bg-slate-900 '>
+    <div className='bg-white  shadow-lg rounded-lg  p-0 lg:p-8 pb-12 mb-8 dark:bg-gray-800 dark:bg-opacity-40  '>
       <div className='relative overflow-hidden shadow-md pb-80 mb-6 '>
         <div className='dark:bg-black absolute h-80 w-full  z-10 opacity-40'>
         </div>

@@ -3,7 +3,7 @@ import React from 'react'
 
 const Author = ({ author }) => {
   return (
-    <div className="text-center  mb-8 p-12 relative rounded-lg bg-black bg-opacity-20">
+    <div className="text-center  mb-8 p-12 relative rounded-lg bg-black bg-opacity-40">
       <div className=" absolute left-44 right-0 ">
         <Image
           unoptimized

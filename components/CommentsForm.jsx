@@ -86,8 +86,8 @@ const CommentsForm = ({ slug }) => {
         <textarea value={formData.comment} onChange={onInputChange} className="dark:bg-slate-900 dark:text-white p-4 outline-none w-full rounded-lg max-h-42  focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" name="comment" placeholder="Comment" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-        <input type="text" value={formData.name} onChange={onInputChange} className="dark:bg-slate-900 dark:text py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Name" name="name" />
-        <input type="email" value={formData.email} onChange={onInputChange} className="dark:bg-slate-900 dark:text py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" placeholder="Email" name="email" />
+        <input type="text" value={formData.name} onChange={onInputChange} className="dark:bg-slate-900 dark:text py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-500" placeholder="Name" name="name" />
+        <input type="email" value={formData.email} onChange={onInputChange} className="dark:bg-slate-900 dark:text py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-500" placeholder="Email" name="email" />
       </div>
       <div className="grid grid-cols-1 gap-4 mb-4">
         <div>
