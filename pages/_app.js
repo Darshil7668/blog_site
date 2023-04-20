@@ -1,11 +1,14 @@
 import { Layout } from '../components/Index'
 import layout from '@/components/Layout'
 import '@/styles/globals.scss'
-import { useEffect, useState } from 'react'
+import { ThemeProvider } from 'next-themes'
+
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider attribute='class'>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   )
 }
