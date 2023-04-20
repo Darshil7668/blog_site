@@ -1,11 +1,14 @@
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import React from 'react'
 import { PostWidget, Categories, PostCard } from '../components/Index'
-import { getPosts } from '@/components/Fetch'
+import { getPostDetails, getPosts } from '@/components/Fetch'
 import FeaturedPosts from '@/section/FeaturedPost'
-const index = ({ posts }) => {
-  console.log(posts);
+const Index = ({ posts }) => {
+
+  useEffect(() => {
+  }, [])
+
   return (
     <>
       <div className='container mx-auto px-10 mb-8   '>
@@ -19,7 +22,7 @@ const index = ({ posts }) => {
             {posts.map((post, index) => <PostCard key={index} post={post} />)}
           </div>
           <div className='lg:col-span-4 col-span-12 '>
-            <PostWidget />
+            {/* <PostWidget slug={null} categories={null} /> */}
             <Categories />
           </div>
         </div>
@@ -27,7 +30,7 @@ const index = ({ posts }) => {
     </>
   )
 }
-export default index
+export default Index
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];

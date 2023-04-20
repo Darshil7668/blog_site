@@ -1,10 +1,14 @@
 import moment from 'moment/moment'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { getRecentPosts, getSimilarPosts } from './Fetch'
+
 const PostWidget = ({ category, slug }) => {
   const [realatedPost, setRealatedPost] = useState([])
+  const slugRef = useRef(slug);
+  const slugRef2 = useRef(category);
+
   useEffect(() => {
     if (slug) {
       getSimilarPosts(category, slug)
@@ -12,8 +16,8 @@ const PostWidget = ({ category, slug }) => {
     } else {
       getRecentPosts(category, slug).then((result) => setRealatedPost(result))
     }
-
-  }, [slug])
+    
+  }, [slug,category])
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8 PostWidget">
