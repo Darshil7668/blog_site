@@ -3,10 +3,42 @@ import { motion } from 'framer-motion';
 import moment from 'moment/moment';
 import Image from 'next/image';
 import Link from 'next/link'
-import React from 'react'
+import React, {useEffect} from 'react'
 
 const PostCard = ({ post }) => {
-  console.log(post)
+useEffect(() => {
+    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+    // Select all anchor links with a href value that starts with #
+
+    smoothScrollLinks.forEach((link) => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent the default link behavior
+
+        const target = document.querySelector(this.getAttribute('href'));
+        // Get the target element based on the href attribute of the link
+
+        if (target) {
+          // If the target element exists, scroll to it smoothly
+          const body = document.body;
+          const html = document.documentElement;
+          const offset = target.offsetTop;
+
+          body.style.scrollBehavior = 'smooth';
+          html.style.scrollBehavior = 'smooth';
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth',
+          });
+
+          // Reset the scroll behavior to the default after scrolling is complete
+          setTimeout(function () {
+            body.style.scrollBehavior = 'initial';
+            html.style.scrollBehavior = 'initial';
+          }, 1000); // Change the value to match the duration of your smooth scroll animation
+        }
+      });
+    });
+  }, []);
   return (
     <motion.div variants={fadeLeft} initial={fadeLeft.initial} animate={fadeLeft.animate} className='bg-white  shadow-lg rounded-lg  p-0 lg:p-8 pb-12 mb-8 dark:bg-gray-800 dark:bg-opacity-40  '>
       <div className='relative overflow-hidden shadow-md pb-80 mb-6 '>
