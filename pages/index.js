@@ -3,7 +3,6 @@ import { Categories, PostCard, PostWidget } from '@/components/Index';
 import FeaturedPosts from '@/section/FeaturedPost';
 
 export default function Home({ posts }) {
-  console.log("hi")
   return (
     <div className="container mx-auto px-10 mb-8 ">
       <FeaturedPosts />
