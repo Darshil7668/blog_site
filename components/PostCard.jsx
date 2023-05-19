@@ -11,7 +11,7 @@ useEffect(() => {
   }, []);
     console.log(key)
     console.log(index)
-  
+    console.log("chages made")
   return (
     <motion.div variants={fadeLeft} initial={fadeLeft.initial} animate={fadeLeft.animate} className='bg-white  shadow-lg rounded-lg  p-0 lg:p-8 pb-12 mb-8 dark:bg-gray-800 dark:bg-opacity-40' id={`blog-${index}`>
       <div className='relative overflow-hidden shadow-md pb-80 mb-6 '>
