@@ -51,7 +51,7 @@ const PostDetail = ({ post }) => {
           src={post.featuredImage.url}
           alt={post.title}
           className='object-top h-full w-full rounded-t-lg'
-          width={100}
+          width={500}
           height={100}
         />
       </div>
