@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link'
 import React, {useEffect} from 'react'
 
-const PostCard = ({ post,key }) => {
+const PostCard = ({ post, key }) => {
 useEffect(() => {
   
   }, []);
