@@ -6,6 +6,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const PostCard = ({ post }) => {
+  console.log(post)
   return (
     <motion.div variants={fadeLeft} initial={fadeLeft.initial} animate={fadeLeft.animate} className='bg-white  shadow-lg rounded-lg  p-0 lg:p-8 pb-12 mb-8 dark:bg-gray-800 dark:bg-opacity-40  '>
       <div className='relative overflow-hidden shadow-md pb-80 mb-6 '>
